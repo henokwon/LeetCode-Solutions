@@ -10,11 +10,22 @@ var merge = function(nums1, m, nums2, n) {
     let j = n - 1;
     let k = m + n - 1;
 
+    // Merge the arrays
     while (i >= 0 && j >= 0) {
-        nums1[k--] = (nums1[i] > nums2[j]) ? nums1[i--] : nums2[j--];
+        if (nums1[i] > nums2[j]) {
+            nums1[k] = nums1[i];
+            i--;
+        } else {
+            nums1[k] = nums2[j];
+            j--;
+        }
+        k--;
     }
 
+    // Copy the remaining elements in nums2 and add them to nums1
     while (j >= 0) {
-        nums1[k--] = nums2[j--];
+        nums1[k] = nums2[j];
+        j--;
+        k--;
     }
 };
