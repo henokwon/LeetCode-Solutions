@@ -9,7 +9,8 @@ var removeElement = function(nums, val) {
 
     while (k < n) {
         if (nums[k] === val) {
-            nums[k] = nums[--n];
+            nums[k] = nums[n - 1];
+            n--;
         } else {
             k++;
         }
