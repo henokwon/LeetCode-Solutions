@@ -8,8 +8,9 @@ var rotate = function(nums, k) {
     k = k % n;
 
     let count = 0;
+    let start = 0;
 
-    for (let start = 0; count < n; start++) {
+    while (count < n) {
         let current = start;
         let prev = nums[start];
 
@@ -19,6 +20,7 @@ var rotate = function(nums, k) {
             current = next;
             count++;
         } while (start !== current);
-    
+        
+        start++;
     }
 };
