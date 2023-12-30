@@ -4,7 +4,7 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var rotate = function(nums, k) {
-    const n = nums.length;
+     const n = nums.length;
     k = k % n;
 
     let count = 0;
