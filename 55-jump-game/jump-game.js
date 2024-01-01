@@ -8,8 +8,9 @@ var canJump = function(nums) {
     }
 
     let maximum = nums[0];
+    let i = 0;
 
-    for (let i = 0; i < nums.length; i++) {
+    while (i < nums.length) {
         if (maximum <= i && nums[i] === 0) {
             return false;
         }
@@ -21,7 +22,10 @@ var canJump = function(nums) {
         if (maximum >= nums.length - 1) {
             return true;
         }
+
+        i++;
     }
 
     return false;
+
 };
