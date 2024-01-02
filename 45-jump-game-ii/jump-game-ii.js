@@ -5,8 +5,7 @@
 var jump = function(nums) {
     let n = nums.length - 1, c = -1, nxt = 0, res = 0;
 
-    while (nxt < n) {
-        res++;
+    for (; nxt < n; res++) {
         let maxIdx = nxt;
         
         for (let i = c + 1; i <= nxt; i++)
