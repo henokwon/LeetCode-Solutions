@@ -7,14 +7,10 @@ var jump = function(nums) {
 
     while (nxt < n) {
         res++;
-        const prevC = c;
         let maxIdx = nxt;
-
-        for (let i = prevC + 1; i <= nxt; i++) {
-            if (i + nums[i] > maxIdx + nums[maxIdx]) {
-                maxIdx = i;
-            }
-        }
+        
+        for (let i = c + 1; i <= nxt; i++)
+            if (i + nums[i] > maxIdx + nums[maxIdx]) maxIdx = i;
 
         c = maxIdx;
         nxt = c + nums[c];
