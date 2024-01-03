@@ -7,7 +7,7 @@ var jump = function(nums) {
 //iterate
     for (; nxt < n; res++) {
         let maxIdx = nxt;
-        
+       //find max 
         for (let i = c + 1; i <= nxt; i++)
             if (i + nums[i] > maxIdx + nums[maxIdx]) maxIdx = i;
 
