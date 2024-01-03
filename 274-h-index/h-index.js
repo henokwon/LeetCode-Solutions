@@ -5,7 +5,7 @@
 var hIndex = function(citations) {
  const n = citations.length;
     const count = Array(n + 1).fill(0);
-
+//find the minimum
     for (const citation of citations) {
         count[Math.min(citation, n)]++;
     }
