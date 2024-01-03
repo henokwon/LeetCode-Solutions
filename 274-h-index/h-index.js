@@ -9,7 +9,7 @@ var hIndex = function(citations) {
     for (const citation of citations) {
         count[Math.min(citation, n)]++;
     }
-
+//iterate
     let total = 0;
     for (let i = n; i >= 0; i--) {
         total += count[i];
