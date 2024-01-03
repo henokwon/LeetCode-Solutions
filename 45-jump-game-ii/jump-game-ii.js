@@ -4,7 +4,7 @@
  */
 var jump = function(nums) {
     let n = nums.length - 1, c = -1, nxt = 0, res = 0;
-
+//iterate
     for (; nxt < n; res++) {
         let maxIdx = nxt;
         
