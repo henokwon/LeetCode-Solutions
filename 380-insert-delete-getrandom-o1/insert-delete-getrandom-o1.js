@@ -6,10 +6,10 @@ class RandomizedSet {
 
   insert(val) {
     if (this.map.has(val)) return false;
-    
+
     this.map.set(val, this.list.length);
     this.list.push(val);
-    
+
     return true;
   }
 
@@ -17,14 +17,13 @@ class RandomizedSet {
     if (!this.map.has(val)) return false;
 
     const idx = this.map.get(val);
-    const lastVal = this.list[this.list.length - 1];
+    const lastVal = this.list.pop();
 
-    // Move the last element to the position of the removed element
-    this.list[idx] = lastVal;
-    this.map.set(lastVal, idx);
+    if (val !== lastVal) {
+      this.list[idx] = lastVal;
+      this.map.set(lastVal, idx);
+    }
 
-    // Remove the last element and update the map
-    this.list.pop();
     this.map.delete(val);
 
     return true;
