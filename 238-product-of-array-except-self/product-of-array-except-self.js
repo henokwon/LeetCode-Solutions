@@ -18,7 +18,7 @@ var productExceptSelf = function(nums) {
 
     let suffix = 1;
 
-    // Calculate the suffix products and multiply them with the result array
+    // Update the result array with the suffix products
     for (let i = n - 1; i >= 0; i--) {
         result[i] *= suffix;
         suffix *= nums[i];
