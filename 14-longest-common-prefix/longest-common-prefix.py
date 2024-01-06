@@ -4,12 +4,11 @@ class Solution:
             return ''
 
         prefix = min(strs)
-
         for i, char in enumerate(prefix):
-            for string in strs:
-                if string[i] != char:
-                    return prefix[:i]
+            if any(string[i] != char for string in strs):
+                return prefix[:i]
 
         return prefix
+
 
     
