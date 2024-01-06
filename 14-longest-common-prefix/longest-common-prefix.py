@@ -3,14 +3,13 @@ class Solution:
         if not strs:
             return ''
 
-        prefix = strs[0]
+        prefix = min(strs)
 
-        for string in strs[1:]:
-            i = 0
-            while i < len(prefix) and i < len(string) and prefix[i] == string[i]:
-                i += 1
-
-            prefix = prefix[:i]
+        for i, char in enumerate(prefix):
+            for string in strs:
+                if string[i] != char:
+                    return prefix[:i]
 
         return prefix
+
     
