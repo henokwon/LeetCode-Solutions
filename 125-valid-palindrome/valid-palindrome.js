@@ -3,24 +3,17 @@
  * @return {boolean}
  */
 var isPalindrome = function(s) {
-    if (s.length === 0) {
-        return true;
-    }
+     if (s.length === 0) return true;
+
+    const isAlphaNumeric = (char) => /[a-zA-Z0-9]/.test(char);
 
     let left = 0, right = s.length - 1;
-    const alphanumericSet = new Set([...Array(10).keys()].map(i => String.fromCharCode(i + 48)).concat([...Array(26).keys()].map(i => String.fromCharCode(i + 65)).concat([...Array(26).keys()].map(i => String.fromCharCode(i + 97)))));
 
     while (left < right) {
-        if (!alphanumericSet.has(s[left]))
-            left++;
-        else if (!alphanumericSet.has(s[right]))
-            right--;
-        else if (s[left].toLowerCase() !== s[right].toLowerCase())
-            return false;
-        else {
-            left++;
-            right--;
-        }
+        if (!isAlphaNumeric(s[left])) left++;
+        else if (!isAlphaNumeric(s[right])) right--;
+        else if (s[left++].toLowerCase() !== s[right--].toLowerCase()) return false;
     }
+
     return true;
 }
