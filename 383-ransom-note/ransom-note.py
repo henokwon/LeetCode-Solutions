@@ -11,4 +11,3 @@ class Solution:
             char_count[char] -= 1
 
         return True
-    
