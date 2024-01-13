@@ -6,29 +6,18 @@
 var wordPattern = function(pattern, s) {
   const words = s.split(" ");
 
-  if (pattern.length !== words.length) {
-    return false;
-  }
+  if (pattern.length !== words.length) return false;
 
-  const patternToWordMap = new Map();
-  const seenWords = new Set();
+  const patternToWordMap = new Map(), seenWords = new Set();
 
   for (let i = 0; i < pattern.length; i++) {
-    const currentPatternChar = pattern[i];
-    const currentWord = words[i];
+    const char = pattern[i];
+    const word = words[i];
 
-    if (patternToWordMap.has(currentPatternChar)) {
-      if (patternToWordMap.get(currentPatternChar) !== currentWord) {
-        return false;
-      }
-    } else {
-      if (seenWords.has(currentWord)) {
-        return false;
-      }
+    if ((patternToWordMap.has(char) && patternToWordMap.get(char) !== word) || (!patternToWordMap.has(char) && seenWords.has(word))) return false;
 
-      patternToWordMap.set(currentPatternChar, currentWord);
-      seenWords.add(currentWord);
-    }
+    patternToWordMap.set(char, word);
+    seenWords.add(word);
   }
 
   return true;
