@@ -8,19 +8,14 @@ class Solution:
         pattern_to_word_map = {}
         seen_words = set()
 
-        for i in range(len(pattern)):
-            current_pattern_char = pattern[i]
-            current_word = words[i]
-
-            if current_pattern_char not in pattern_to_word_map:
-                if current_word in seen_words:
+        for char, word in zip(pattern, words):
+            if char not in pattern_to_word_map:
+                if word in seen_words:
                     return False
 
-                pattern_to_word_map[current_pattern_char] = current_word
-                seen_words.add(current_word)
-            else:
-                if pattern_to_word_map[current_pattern_char] != current_word:
-                    return False
+                pattern_to_word_map[char] = word
+                seen_words.add(word)
+            elif pattern_to_word_map[char] != word:
+                return False
 
         return True
-    
