@@ -4,16 +4,21 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
+    // Create a map to store the number and its index
     const numIndexMap = new Map();
-    
+
     for (let currentIndex = 0; currentIndex < nums.length; currentIndex++) {
         const currentNum = nums[currentIndex];
-        const difference = target - currentNum;
+        const complement = target - currentNum;
 
-        if (numIndexMap.has(difference)) {
-            return [currentIndex, numIndexMap.get(difference)];
+        // Check if the complement is in the map
+        if (numIndexMap.has(complement)) {
+            // Return the indices of the two numbers that add up to the target
+            return [currentIndex, numIndexMap.get(complement)];
         }
-        
+
+        // Add the current number and its index to the map
         numIndexMap.set(currentNum, currentIndex);
     }
 };
+
