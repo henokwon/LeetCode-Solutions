@@ -2,25 +2,13 @@
  * @param {number} n
  * @return {boolean}
  */
-const isHappy = function(n) {
-    const seenNumbers = new Set();
+const isHappy = n => {
+    const seen = new Set();
 
-    while (n !== 1 && !seenNumbers.has(n)) {
-        seenNumbers.add(n);
-        n = sumOfSquares(n);
+    while (n !== 1 && !seen.has(n)) {
+        seen.add(n);
+        n = [...n + ''].reduce((sum, digit) => sum + digit ** 2, 0);
     }
 
     return n === 1;
-};
-
-const sumOfSquares = function(num) {
-    let sum = 0;
-
-    while (num > 0) {
-        const digit = num % 10;
-        sum += digit ** 2;
-        num = Math.floor(num / 10);
-    }
-
-    return sum;
 };
