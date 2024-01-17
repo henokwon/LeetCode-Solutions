@@ -4,18 +4,12 @@
  * @return {boolean}
  */
 var containsNearbyDuplicate = function(nums, k) {
-    const hasmap = new Set();
+    const set = new Set();
 
     for (let i = 0; i < nums.length; i++) {
-        if (i > k) {
-            hasmap.delete(nums[i - k - 1]);
-        }
-
-        if (hasmap.has(nums[i])) {
-            return true;
-        }
-
-        hasmap.add(nums[i]);
+        if (i > k) set.delete(nums[i - k - 1]);
+        if (set.has(nums[i])) return true;
+        set.add(nums[i]);
     }
 
     return false;
