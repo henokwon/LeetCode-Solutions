@@ -3,12 +3,12 @@ class Solution:
         my_set = set()
 
         for i, num in enumerate(nums):
-            if i > k:
-                my_set.remove(nums[i - k - 1])
-            if num in my_set:
-                return True
+            if i > k: my_set.discard(nums[i - k - 1])
+            if num in my_set: return True
             my_set.add(num)
 
         return False
+
+
 
     
