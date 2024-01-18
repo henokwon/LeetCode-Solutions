@@ -6,15 +6,9 @@ var summaryRanges = function(nums) {
     const output = [];
     
     for (let i = 0; i < nums.length; i++) {
-        let beginRange = nums[i];
-        let endRange = beginRange;
-
-        while (i + 1 < nums.length && nums[i + 1] === nums[i] + 1) {
-            endRange = nums[i + 1];
-            i++;
-        }
-
-        output.push(beginRange === endRange ? `${beginRange}` : `${beginRange}->${endRange}`);
+        let begin = nums[i], end = begin;
+        while (i + 1 < nums.length && nums[i + 1] === nums[i] + 1) end = nums[++i];
+        output.push(begin === end ? `${begin}` : `${begin}->${end}`);
     }
 
     return output;
