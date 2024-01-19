@@ -4,20 +4,13 @@
  */
 var isValid = function(s) {
     const stack = [];
-    const bracketMap = {
-        ')': '(',
-        '}': '{',
-        ']': '[',
-    };
 
     for (let c of s) {
-        if (bracketMap[c] !== undefined) {
-            // If the character is a closing bracket
-            if (!stack.length || stack.pop() !== bracketMap[c]) {
-                return false;
-            }
-        } else {
-            // If the character is an opening bracket
+        if (c === ')' && stack.pop() !== '(' ||
+            c === '}' && stack.pop() !== '{' ||
+            c === ']' && stack.pop() !== '[') {
+            return false;
+        } else if (c === '(' || c === '{' || c === '[') {
             stack.push(c);
         }
     }
