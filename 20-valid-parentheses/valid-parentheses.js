@@ -4,10 +4,15 @@
  */
 var isValid = function(s) {
     const stack = [];
+    let i = 0;
 
-    for (let c of s) {
+    while (i < s.length) {
+        const c = s[i++];
         const match = { ')': '(', '}': '{', ']': '[' }[c];
-        if (match && stack.pop() !== match || !match) stack.push(c);
+
+        if (match && stack.pop() !== match || !match) {
+            stack.push(c);
+        }
     }
 
     return stack.length === 0;
