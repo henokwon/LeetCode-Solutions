@@ -1,15 +1,18 @@
 func removeElement(nums []int, val int) int {
-    j := 0
+    j := 0 // Pointer to track the position of non-val elements
 
-    // Iterate
+    // Iterate through all elements in nums
     for i := 0; i < len(nums); i++ {
         if nums[i] != val {
-            // Move valid elements to the front of the array
-            nums[j] = nums[i]
+            // Only assign when i and j are different to avoid unnecessary swaps
+            if i != j {
+                nums[j] = nums[i]
+            }
             j++
         }
     }
 
-    return j // The new length of the array without the `val` elements
+    return j // Return the new length of the array without the val elements
+
 
 }
